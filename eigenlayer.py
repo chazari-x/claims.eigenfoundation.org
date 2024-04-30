@@ -78,9 +78,9 @@ class ProcessThread(threading.Thread):
                         if response.json()["status"] == "Complete":
                             if response.json()["data"]["pipelines"]["tokenQualified"] != 0:
                                 return f'{addr} | {response.json()["data"]["pipelines"]["tokenQualified"]}\n'
+                            else: return ""
                     else: return ""
-            except Exception as e:
-                print(e)
+            except:
                 pass
             
 proxies = load_proxies(input('Path to proxies: '))
